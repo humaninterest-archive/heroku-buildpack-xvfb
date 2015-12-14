@@ -1,17 +1,4 @@
 #!/usr/bin/env bash
-
-# Setup Xvfb to be run with libfakeroot (substitute paths for /usr/bin/xkbcomp).
-XVFB_BINDIR="/app/.apt/usr/bin"
-LIBFAKECHROOT_PATH="/app/.apt/usr/lib/x86_64-linux-gnu/fakechroot/libfakechroot.so"
-
-TEMP_BINDIR="$1/.apt/usr/bin"
-
-if [ ! -e "$TEMP_BINDIR/Xvfb.real" ]; then
-    echo "setting up libfakeroot Xvfb in $TEMP_BINDIR"
-    mv "$TEMP_BINDIR/Xvfb" "$TEMP_BINDIR/Xvfb.real"
-    cat > "$TEMP_BINDIR/Xvfb" <<EOF
-export FAKECHROOT_CMD_SUBST="/usr/bin/xkbcomp=$XVFB_BINDIR/xkbcomp"
-fakechroot -l "$LIBFAKECHROOT_PATH" "$XVFB_BINDIR/Xvfb.real"
-EOF
-    chmod +x "$TEMP_BINDIR/Xvfb"
-fi
+ln -s /app/.apt/usr/bin /app/xub
+# Fix xkbcomp path by rewriting Xvfb binary.
+sed -i s:/usr/bin:/app/xub: /app/.apt/usr/bin/Xvfb
