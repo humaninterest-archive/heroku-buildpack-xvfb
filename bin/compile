@@ -4,7 +4,7 @@
 XVFB_BINDIR="/app/.apt/usr/bin"
 LIBFAKECHROOT_PATH="/app/.apt/usr/lib/x86_64-linux-gnu/fakechroot/libfakechroot.so"
 
-TEMP_BINDIR="/app/.apt/usr/bin"
+TEMP_BINDIR="$1/.apt/usr/bin"
 
 if [ ! -e "$TEMP_BINDIR/Xvfb.real" ]; then
     echo "setting up libfakeroot Xvfb in $TEMP_BINDIR"
