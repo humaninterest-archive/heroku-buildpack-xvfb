@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 ln -s /app/.apt/usr/bin /app/xub
 # Fix xkbcomp path by rewriting Xvfb binary.
-sed -i s:/usr/bin:/app/xub: /app/.apt/usr/bin/Xvfb
+sed -i s:/usr/bin:/app/xub: "$1/.apt/usr/bin/Xvfb"
