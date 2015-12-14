@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ -f $1/.apt/usr/bin/Xvfb ]; then
+    echo "Xvfb-setup"
+    exit 0
+fi
+
+exit 1
