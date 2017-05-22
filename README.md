@@ -11,3 +11,9 @@ on Heroku. To use it, ensure that `heroku-buildpack-apt` comes earlier than this
 in your `Aptfile`.
 
 Some inspiration (for dealing with Xvfb's compiled-in `XKB_BIN_DIRECTORY`, which leads to it complaining that it can't find `/usr/bin/xkbcomp`) comes from fxtentacle's answer to http://stackoverflow.com/a/34219781/1162903.
+
+## Notes
+
+This might only work on Heroku's cedar-14 platform. Issues reported on heroku-16:
+
+https://github.com/segmentio/nightmare/issues/497#issuecomment-303237550
